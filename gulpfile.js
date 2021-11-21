@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 "use strict";
+import gulp from 'gulp';
+import imagemin from 'gulp-imagemin';
 
-const { src, dest } = require('gulp');
-const imagemin = require('gulp-imagemin');
-
-exports.default = () => (
-    src(['./**/*.{jpg,jpeg,png}', '!node_modules/**'])
+export default () => (
+    gulp.src(['./**/*.{jpg,jpeg,png}', '!node_modules/**'])
         .pipe(imagemin())
-        .pipe(dest('.'))
+        .pipe(gulp.dest('.'))
 );
+
